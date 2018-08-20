@@ -23,9 +23,9 @@ class Triangle
     if @valid = false
       raise TriangleError
     else
-      if @a = @b = @c
+      if @a == @b == @c
         return :equilateral
-      elsif @a = @b || @a = @c || @b = @c
+      elsif @a == @b || @a == @c || @b == @c
         return  :isosceles
       else
         return :scalene
@@ -35,7 +35,4 @@ class Triangle
 
   class TriangleError < StandardError
   end
-
-
-
 end
