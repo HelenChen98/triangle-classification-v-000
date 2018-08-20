@@ -13,11 +13,11 @@ class Triangle
       raise TriangleError
     else
       if @a = @b = @c
-        return "equilateral"
+        return :equilateral
       elsif @a = @b || @a = @c || @b = @c
-        return  "isosceles"
+        return  :isosceles
       else
-        return "scalene"
+        return :scalene
       end
     end
   end
