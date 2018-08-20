@@ -15,16 +15,15 @@ class Triangle
     if !valid?
       raise TriangleError
     elsif @a==@b && @b==@c
-      result = :equilateral
+      return :equilateral
     elsif @a==@b || @a==@c || @b==@c
-      result = :isosceles
+      return :isosceles
     else
-      result = :scalene
+      return :scalene
     end
-    result
   end
   
   class TriangleError < StandardError
   end
-  
+
 end
