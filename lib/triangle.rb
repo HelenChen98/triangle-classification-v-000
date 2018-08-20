@@ -6,8 +6,8 @@ class Triangle
     @sum2 = a+c
     @sum3 = b+c
     @a = a
-    @b = b 
-    @c = c 
+    @b = b
+    @c = c
 
     if a <= 0 || b <= 0 || c <= 0
       @valid = false
@@ -17,7 +17,7 @@ class Triangle
       @valid = true
     end
   end
-  
+
 
   def kind
     if @valid = false
