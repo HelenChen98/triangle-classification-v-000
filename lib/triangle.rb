@@ -7,8 +7,7 @@ class Triangle
   end
 
   def valid?
-    result = [@a, @b, @c].all? {|side| side > 0}
-    result && (@a+@b > @c) && (@a+@c > @b) && (@b+@c > @a)
+    return [@a, @b, @c].all? {|side| side > 0} && (@a+@b > @c) && (@a+@c > @b) && (@b+@c > @a)
   end
 
   def kind
