@@ -1,38 +1,29 @@
 class Triangle
-  attr_accessor :sum1, :sum2, :sum3, :a, :b, :c, :valid
-
-  def initialize(a,b,c)
-    @sum1 = a+b
-    @sum2 = a+c
-    @sum3 = b+c
-    @a = a
-    @b = b
-    @c = c
-
-    if a <= 0 || b <= 0 || c <= 0
-      @valid = false
-    elsif @sum1 < c || @sum2 < b || @sum3 < a
-      @valid = false
-    else
-      @valid = true
-    end
+  attr_accessor :a, :b, :c
+  def initialize(a, b, c)
+    @a=a
+    @b=b
+    @c=c
   end
 
+  def valid?
+    result = [@a, @b, @c].all? {|side| side > 0}
+    result && (@a+@b > @c) && (@a+@c > @b) && (@b+@c > @a)
+  end
 
   def kind
-    if @valid = false
+    if !valid?
       raise TriangleError
+    elsif @a==@b && @b==@c
+      result = :equilateral
+    elsif @a==@b || @a==@c || @b==@c
+      result = :isosceles
     else
-      if @a == @b == @c
-        return :equilateral
-      elsif @a == @b || @a == @c || @b == @c
-        return  :isosceles
-      else
-        return :scalene
-      end
+      result = :scalene
     end
+    result
   end
+end
 
-  class TriangleError < StandardError
-  end
+class TriangleError < StandardError
 end
